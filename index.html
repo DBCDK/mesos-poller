@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>mesos-poller</title>
+    </head>
+    <body>
+        <h1>Mesos-Poller</h1>
+        <hr>
+        <p>
+            Probes Mesos for information about instances and their endpoints for a given web-service.
+        </p>
+        <p>
+            Path: &quot;http://this.host/status?app=Full-Mesos-App-Path&quot;<br>
+            fetches information about the given Application, and probes each in turn, using the mesos configured status-endpoint.<br>
+            <br>
+            Path: &quot;http://this.host/status?app=Full-Mesos-App-Path&amp;part=Status-Endpoint&quot;<br>
+            fetches information about the given Application, and probes each in turn, using the given status-endpoint.
+        </p>
+
+        <dl>
+            <dt>app</dt><dd>The full path of the application in Mesos (e.g. prod/search/cisterne/opensearch/opensearch-5.0)</dd>
+            <dt>part</dt><dd>The status part of the applications URL (e.g. /opensearch/?HowRU)</dd>
+        </dl>
+        <p>
+        Returns the result in form of JSON<br>
+        Example:<br>
+        {"num-endpoints": 5,
+         "app": "prod/search/cisterne/opensearch/opensearch-5.0",
+         "num-ok": 5,
+         "status": "OK"}
+        </p>
+    </body>
+</html>
